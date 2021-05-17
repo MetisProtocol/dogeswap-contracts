@@ -30,6 +30,16 @@ contract("SWAP Test", async accounts => {
            const slv = await S.deployed();
 
            await factory.createPair(gld.address, slv.address);
+        });
+
+        it("add liquidity", async() => {
+           //
+           // Fetch the deployed exchange
+           const factory = await F.deployed();
+           const router = await R.deployed();
+           const gld = await G.deployed();
+           const slv = await S.deployed();
+
            const pairaddr = await factory.getPair.call(gld.address, slv.address);
            console.log(pairaddr);
            await router.addLiquidity(gld.address, slv.address, 500, 1000, 1, 1, pariaddr);
