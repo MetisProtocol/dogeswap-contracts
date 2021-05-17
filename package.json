@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/Dogeswap-Fans/dogeswap-contracts#readme",
   "dependencies": {
+    "@metis.io/solc": "^0.6.12-alpha.2",
     "@openzeppelin/contracts": "^3.4.1",
-    "@truffle/hdwallet-provider": "^1.2.2"
+    "@truffle/hdwallet-provider": "^1.2.2",
+    "dotenv": "^9.0.2"
   },
   "devDependencies": {
     "@types/chai": "^4.2.6",

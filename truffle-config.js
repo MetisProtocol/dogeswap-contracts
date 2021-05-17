@@ -1,5 +1,10 @@
-const { mnemonic, etherscanApiKey } = require('./secrets.json');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
+require('dotenv').config();  
+const infuraKey = process.env.INFURAKEY;  
+const l2url = process.env.LAYER2;  
+const fs = require('fs');  
+const mnemonic = fs.readFileSync(".secret").toString().trim();  
+
 module.exports = {
   // Uncommenting the defaults below 
   // provides for an easier quick-start with Ganache.
@@ -20,41 +25,29 @@ module.exports = {
   //  }
   //}
   //
-  contracts_directory: "./contracts/mining",
+  contracts_directory: "./contracts/swap",
   networks: {
-    heco: {
+    l2: {
       provider: () => new HDWalletProvider(
-        mnemonic, 'https://http-mainnet.hecochain.com'
+        mnemonic, 'https://ws2ggnw4nb.execute-api.us-east-2.amazonaws.com/beta/v1?owner=420'
       ),
-      network_id: 128,
-      gasPrice: 10e9,
+      network_id: 420,
+      gasPrice: 0,
       skipDryRun: true
     }
   },
   compilers: {
     solc: {
-      version: '0.6.12+commit.27d51765', // A version or constraint - Ex. "^0.5.0"
+        version: 'node_modules/@metis.io/solc', // A version or constraint - Ex. "^0.5.0"
       // Can also be set to "native" to use a native solc
       docker: false, // Use a version obtained through docker
       parser: "solcjs",  // Leverages solc-js purely for speedy parsing
       settings: {
-        evmVersion: 'istanbul',
-        libraries: {},
-        metadata: {
-          bytecodeHash: "ipfs"
-        },
         optimizer: {
           enabled: true,
-          runs: 200  // Optimize for how many times you intend to run the code
+          runs: 1  // Optimize for how many times you intend to run the code
         },
-        remappings: []
       }
     }
   },
-  plugins: [
-    'truffle-plugin-verify'
-  ],
-  api_keys: {
-    hecoinfo: etherscanApiKey
-  }
 };
