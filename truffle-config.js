@@ -31,9 +31,10 @@ module.exports = {
       provider: () => new HDWalletProvider(
         mnemonic, 'https://ws2ggnw4nb.execute-api.us-east-2.amazonaws.com/beta/v1?owner=420'
       ),
-      network_id: 420,
+      network_id: "420",
       gasPrice: 0,
-      skipDryRun: true
+      skipDryRun: true,
+      networkCheckTimeout: 2000,
     }
   },
   compilers: {
