@@ -15,3 +15,5 @@ build/
 file/
 contracts/*/artifacts/
 contracts/*/*/artifacts/
+.secret
+.env
