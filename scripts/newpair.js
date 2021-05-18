@@ -1,6 +1,8 @@
 // Contracts
 const F = artifacts.require("UniswapV2Factory"); 
 const R = artifacts.require("UniswapV2Router02");
+const G = artifacts.require("GLDToken");
+const S = artifacts.require("SLVToken");
 //
 // Utils
 const ether = (n) => {
@@ -13,10 +15,13 @@ module.exports = async function(callback) {
     try {
 
         // Fetch the deployed exchange
-        const factory = await F.deployed();
-        const route = await R.deployed();
+           const factory = await F.deployed();
+           const router = await R.deployed();
+           const gld = await G.deployed();
+           const slv = await S.deployed();
 
-        console.log(await factory.createPair("0xcEBBBc858AD55c2d399F5860D4555F9d042E8454", "0x14b2b5A9288F8327a2D7eb09b0e4d3DC27Da932e"));
+           const receipt = await factory.createPair(gld.address, slv.address);
+           console.log(receipt.logs);
 
     }
     catch(error) {

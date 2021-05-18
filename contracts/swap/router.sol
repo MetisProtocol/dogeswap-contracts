@@ -4,7 +4,7 @@
 
 // File: contracts/uniswapv2/interfaces/IUniswapV2Pair.sol
 
-pragma solidity >=0.5.0;
+pragma solidity >=0.6.0;
 
 interface IUniswapV2Pair {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -56,10 +56,6 @@ interface IUniswapV2Pair {
 
     function initialize(address, address) external;
 }
-
-// File: contracts/uniswapv2/libraries/SafeMath.sol
-
-pragma solidity =0.6.12;
 
 // a library for performing overflow-safe math, courtesy of DappHub (https://github.com/dapphub/ds-math)
 
@@ -186,7 +182,6 @@ library UniswapV2Library {
 
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-pragma solidity >=0.6.0;
 
 // helper methods for interacting with ERC20 tokens and sending ETH that do not consistently return true/false
 library TransferHelper {
@@ -211,7 +206,6 @@ library TransferHelper {
 
 // File: contracts/uniswapv2/interfaces/IUniswapV2Router01.sol
 
-pragma solidity >=0.6.2;
 
 interface IUniswapV2Router01 {
     function factory() external pure returns (address);
@@ -269,7 +263,6 @@ interface IUniswapV2Router01 {
 
 // File: contracts/uniswapv2/interfaces/IUniswapV2Router02.sol
 
-pragma solidity >=0.6.2;
 
 
 interface IUniswapV2Router02 is IUniswapV2Router01 {
@@ -286,7 +279,6 @@ interface IUniswapV2Router02 is IUniswapV2Router01 {
 
 // File: contracts/uniswapv2/interfaces/IERC20.sol
 
-pragma solidity >=0.5.0;
 
 interface IERC20Uniswap {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -305,13 +297,12 @@ interface IERC20Uniswap {
 }
 
 
-pragma solidity >=0.5.0;
 
 // File: contracts/uniswapv2/UniswapV2Router02.sol
 
-pragma solidity =0.6.12;
 
 contract UniswapV2Router02 is IUniswapV2Router02 {
+
     using SafeMathUniswap for uint;
 
     address public immutable override factory;
