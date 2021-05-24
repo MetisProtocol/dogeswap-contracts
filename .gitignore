@@ -17,3 +17,6 @@ contracts/*/artifacts/
 contracts/*/*/artifacts/
 .secret
 .env
+artifacts*
+cache*
+deployments*
