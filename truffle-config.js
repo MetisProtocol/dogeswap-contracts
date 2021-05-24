@@ -35,6 +35,14 @@ module.exports = {
       gasPrice: 0,
       skipDryRun: true,
       networkCheckTimeout: 4000,
+    },
+    l2b: {
+      host: "3.138.68.113",
+      port: 8545,
+      network_id: "420",
+      gasPrice: 0,
+      skipDryRun: true,
+      networkCheckTimeout: 4000,
     }
   },
   compilers: {

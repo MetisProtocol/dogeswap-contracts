@@ -21,7 +21,9 @@ module.exports = async function(callback) {
            const slv = await S.deployed();
 
            const receipt = await factory.createPair(gld.address, slv.address);
-           console.log(receipt.logs);
+           console.log(receipt);
+           console.log(await factory.getPair.call(slv.address, gld.address));
+
 
     }
     catch(error) {
