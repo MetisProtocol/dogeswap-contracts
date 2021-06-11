@@ -15,17 +15,17 @@ module.exports = {
       }
     },
     optimism: {
-      url: 'http://3.138.68.113:8545', // This is the URL of the local L2 instance we will be creating.
-      accounts: {
-        mnemonic: 'test test test test test test test test test test test junk'
-      },
-      gasPrice: 0,
+      url: 'http://rocketfuel.metis.io/?owner=420', // This is the URL of the local L2 instance we will be creating.
+      accounts: ['']
+      gasPrice: 100000001,
       ovm: true
     }
   },
   solidity: '0.6.12', // Must match solc version of the OVM compiler
   ovm: {
-    solcVersion: '0.6.12' // Currently, we only support 0.5.16, 0.6.12, and 0.7.6 of the Solidity compiler
+    solcVersion: '0.6.12', // Currently, we only support 0.5.16, 0.6.12, and 0.7.6 of the Solidity compiler
+     optimizer: true,
+     runs: 20
   },
   namedAccounts: {
     deployer: 0

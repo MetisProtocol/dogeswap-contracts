@@ -8,8 +8,8 @@ const func = async (hre) => {
   await deploy('UniswapV2Factory', { // Replace `ERC20` with your contract's file name
     from: deployer,
     args: [deployer],
-    gasPrice: hre.ethers.BigNumber.from('0'),
-    gasLimit: 8999999,
+    gasPrice: 100000001
+    gasLimit: 89999990,
     log: true
   })
 }
